@@ -10,6 +10,14 @@
     "build-storybook": "build-storybook",
     "test": "jest --watchAll"
   },
+  "dependencies": {
+    "crayon": "^6.0.1",
+    "crayon-animate": "^6.0.0",
+    "crayon-svelte": "^6.0.0",
+    "crayon-transition": "^6.0.0",
+    "marked": "1.1.1",
+    "sirv-cli": "^1.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
@@ -19,13 +27,16 @@
     "@storybook/addon-actions": "^6.0.21",
     "@storybook/addon-essentials": "^6.0.21",
     "@storybook/addon-links": "^6.0.21",
+    "@storybook/addon-storyshots": "^6.0.21",
     "@storybook/svelte": "^6.0.21",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/svelte": "^3.0.0",
     "@tsconfig/svelte": "^1.0.0",
+    "@types/jest": "^26.0.13",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.1.0",
     "jest": "^26.4.2",
+    "jest-transform-css": "^2.0.0",
     "jest-transform-svelte": "^2.1.1",
     "react-is": "^16.13.1",
     "rollup": "^2.26.9",
@@ -34,43 +45,34 @@
     "rollup-plugin-terser": "^6.0.0",
     "svelte": "^3.24.1",
     "svelte-check": "^1.0.33",
+    "svelte-jest": "^0.3.1",
+    "svelte-jester": "^1.1.5",
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^4.2.1",
     "tailwindcss": "^1.7.6",
+    "ts-jest": "^26.3.0",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.3"
-  },
-  "dependencies": {
-    "crayon": "^6.0.1",
-    "crayon-animate": "^6.0.0",
-    "crayon-svelte": "^6.0.0",
-    "crayon-transition": "^6.0.0",
-    "marked": "1.1.1",
-    "sirv-cli": "^1.0.0"
+    "typescript": "^3.9.7"
   },
   "keywords": [],
   "description": "",
   "jest": {
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.svelte$": "jest-transform-svelte"
-    },
     "moduleFileExtensions": [
       "js",
+      "json",
       "svelte",
-      "json"
+      "ts"
     ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|scss|stylesheet)$": "<rootDir>/__mocks__/styleMock.js"
+    "transform": {
+      "^.+\\.css$": "jest-transform-css",
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.svelte$": ["svelte-jester", { "preprocess": true }],
+      "^.+\\.ts$": "ts-jest",
+      "^.+\\.stories\\.[jt]sx?$": "<rootDir>node_modules/@storybook/addon-storyshots/injectFileName"
     },
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
     ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/build/",
-      "/storybook-static/"
-    ]
+    "cacheDirectory": "node_modules/.cache/jest"
   }
 }

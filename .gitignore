@@ -5,5 +5,5 @@ package-lock.json
 yarn.lock
 *.error
 *.log
-
+__snapshots__
 .DS_Store

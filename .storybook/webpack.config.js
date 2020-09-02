@@ -8,6 +8,6 @@ module.exports = ({ config, mode }) => {
         postcss: true,
         typescript: true,
     });
-    config.resolve.extensions.push('.ts', '.svelte');
+    config.resolve.extensions.push('.ts', '.svelte', 'css');
     return config;
 };

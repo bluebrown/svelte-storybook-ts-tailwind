@@ -1,12 +1,10 @@
 <script lang="typescript">
-  import Tailwind from '../../assets/Tailwindcss.svelte'
   import Stack from './Stack.svelte'
 
-  export let reverse: boolean = false
+  export let reverse: boolean = true
 
 </script>
 
-<Tailwind />
 
 <Stack {reverse}>
   <p>Slot 1</p>
