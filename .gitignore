@@ -1,0 +1,9 @@
+/node_modules/
+/public/build/
+storybook-static
+package-lock.json
+yarn.lock
+*.error
+*.log
+
+.DS_Store
