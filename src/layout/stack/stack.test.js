@@ -1,7 +1,6 @@
 
 import Stack from './StackView.svelte';
 import { render } from '@testing-library/svelte';
-import '../../../.storybook/global.css'
 
 test('Stack Children', async () => {
   const { container } = await render(Stack, {
