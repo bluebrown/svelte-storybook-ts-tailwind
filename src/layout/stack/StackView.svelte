@@ -3,7 +3,11 @@
 
   export let reverse: boolean = true
 
+  import Tailwind from '../../assets/Tailwindcss.svelte'
+
 </script>
+
+<Tailwind />
 
 <Stack {reverse}>
   <p>Slot 1</p>
