@@ -5,7 +5,6 @@
 
 </script>
 
-
 <Stack {reverse}>
   <p>Slot 1</p>
   <p>Slot 2</p>

@@ -4,10 +4,7 @@ module.exports = ({ config, mode }) => {
     const svelteLoader = config.module.rules.find(
         r => r.loader && r.loader.includes('svelte-loader'),
     );
-    svelteLoader.options.preprocess = autoPreprocess({
-        postcss: true,
-        typescript: true,
-    });
+    svelteLoader.options.preprocess = require('../svelte.config').preprocess
     config.resolve.extensions.push('.ts', '.svelte', 'css');
     return config;
 };
